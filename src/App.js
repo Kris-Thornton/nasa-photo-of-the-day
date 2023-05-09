@@ -5,8 +5,7 @@ import axios from "axios";
 
 function App() {
   const [data, setData] = useState({});
-  const [query, setQuery] = useState("");
-  const [image, setImage] = useState({})
+  
 
   useEffect(() => {
   const fetchData = () => {
@@ -14,7 +13,7 @@ function App() {
       .get("https://api.nasa.gov/planetary/apod?api_key=A2OpCJGYHwZcJpHYKAdOxHKQAHNaSjfblhGWSA97")
       .then ((res) => {
         setData(res.data) 
-        console.log(res.data)
+        
       })
       .catch(err => console.error(err))
   }
@@ -28,8 +27,7 @@ const ChangePhoto = (props) => {
   return (
     
     <div className = "PhotoStyle">
-     <button>Date Back</button>
-    <button>Date Forward</button>
+     
     <h2>{props.photo.title}</h2>
     <p>{props.photo.date}</p>
     <img src={props.photo.hdurl} className="nasa-photo"/>
@@ -50,13 +48,15 @@ const ChangePhoto = (props) => {
       </header>
       </div>
 
-    <div >
-      {/* <img src = {data.url} className = 'PhotoStyle' alt={data.title}/>
-      <p className='DataInfo'> {data.date} - {data.explanation}</p> */}
+    <div className = "PhotoStyle">
       {<ChangePhoto photo={data} />}
-
+      
     </div>
-
+    <div>
+      <button>Date Back</button>
+      <button>Date Forward</button>
+    </div>
+      
     <footer>Thank you for taking a look.</footer>
     </>
     

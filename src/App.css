@@ -48,6 +48,12 @@
   object-fit: cover;
 }
 
+.buttonStyle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .App-link {
   color: #61dafb;
 }
